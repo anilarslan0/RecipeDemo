@@ -1,0 +1,40 @@
+﻿@model List<RecipeDemo.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutRecipe.cshtml";
+}
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <h2>Kategoriler</h2>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Kategori Adı: @Html.TextBox("category")
+        <input  class="btn btn-success" type="submit" value="Ara" />
+    </p>
+}
+
+<div class="row">
+    <!-- First recipe item -->
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+            <div class="recipe-item text-center">
+                <a href="/Show/CategoryDetails/@item.CategoryID">
+                    <img style="height:200px;" src="@item.CategoryImageURL" alt="bbq-pork-ribs" />
+                </a>
+                <br />
+                <h3>@item.CategoryName</h3>
+                <p>@item.CategoryDescription</p>
+            </div>
+        </div>
+    }
+</div>
+

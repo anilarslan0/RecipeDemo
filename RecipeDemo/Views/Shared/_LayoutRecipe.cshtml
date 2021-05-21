@@ -1,0 +1,86 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic meta info
+    ==================== -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Recipe Book</title>
+
+    <!-- Favicon
+    ============ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="images/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="images/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="images/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="images/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="images/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="images/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="images/favicon/favicon-96x96.png" />
+
+    <!-- CSS files
+    ============== -->
+    <link rel="stylesheet" type="text/css" href="~/recipe/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="~/recipe/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/recipe/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/recipe/css/animate.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/recipe/css/styles.css" />
+
+    <!-- Modernizr file
+    =================== -->
+    <script charset="utf-8" type="text/javascript " src="js/modernizr.custom.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Splash Screen
+    ================== -->
+    <div id="splash"></div>
+
+    <!-- Website Logo
+    ================= -->
+   @await Component.InvokeAsync("Navbar")
+
+    <!-- Recipes Categories
+    ======================= -->
+    
+
+    <!-- Recipes Items
+    ================== -->
+    <section id="items">
+        <div class="container">
+            
+            @RenderBody()
+        </div>
+    </section>
+
+    <!-- Website Footer
+    =================== -->
+    
+        @await Component.InvokeAsync("Footer")
+    
+
+    <!-- JavaScript files
+    ===================== -->
+    <script charset="utf-8" src="~/recipe/js/jquery-3.3.1.min.js"></script>
+    <script charset="utf-8" src="~/recipe/js/bootstrap.min.js"></script>
+    <script charset="utf-8" src="~/recipe/js/wow.min.js"></script>
+    <script charset="utf-8" src="~/recipe/js/scripts.js"></script>
+</body>
+
+</html>
+
+

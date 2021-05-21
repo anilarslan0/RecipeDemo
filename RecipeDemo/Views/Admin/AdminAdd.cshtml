@@ -1,0 +1,27 @@
+﻿@model RecipeDemo.Models.Admin
+@{
+    ViewData["Title"] = "AdminAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+<h1>Admin/Moderatör Ekleme Sayfası</h1>
+
+@using (Html.BeginForm("AdminAdd", "Admin", FormMethod.Post))
+{
+
+    @Html.LabelFor(x => x.UserName)
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+
+    <br />
+    @Html.LabelFor(x => x.Password)
+    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Role)
+    @Html.TextBoxFor(x => x.Role, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+}
+

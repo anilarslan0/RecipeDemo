@@ -1,0 +1,31 @@
+﻿@model IEnumerable<RecipeDemo.Models.Recipe>
+@{
+    ViewData["Title"] = "CategoryDetails";
+    Layout = "~/Views/Shared/_LayoutRecipe.cshtml";
+}
+
+
+<div class="row">
+    <div class="col-12">
+        <h2>Ürünler</h2>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <!-- First recipe item -->
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+            <div class="recipe-item text-center">
+                <a href="/Show/RecipeDetails/@item.RecipeId">
+                    <img style="height:200px;" src="@item.ImageURL" alt="bbq-pork-ribs" />
+                </a>
+                <br />
+                <h3>@item.Title</h3>
+
+            </div>
+        </div>
+    }
+</div>

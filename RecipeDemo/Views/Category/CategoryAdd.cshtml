@@ -1,0 +1,25 @@
+﻿@model RecipeDemo.Models.Category
+@{
+    ViewData["Title"] = "CategoryAdd";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+<h1>Kategori Ekleme Sayfası</h1>
+
+@using (Html.BeginForm("CategoryAdd", "Category", FormMethod.Post))
+{
+
+    @Html.LabelFor(x => x.CategoryName)
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x=>x.CategoryName,"",new {@style ="color:red"})
+    <br />
+    @Html.LabelFor(x => x.CategoryDescription)
+    @Html.TextBoxFor(x => x.CategoryDescription, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.CategoryImageURL)
+    @Html.TextBoxFor(x => x.CategoryImageURL, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+}

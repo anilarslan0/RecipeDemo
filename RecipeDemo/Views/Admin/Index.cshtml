@@ -1,0 +1,39 @@
+﻿@model List<RecipeDemo.Models.Admin>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<h1>Admin/Moderatör Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Rol</th>
+        <th>Sil</th>
+   
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.AdminId</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td>@item.Role</td>
+            
+            <td><a href="/Admin/AdminDelete/@item.AdminId" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+
+</table>
+
+<a href="/Admin/AdminAdd/" class="btn btn-primary">Admin/Moderatör Ekle</a>
+

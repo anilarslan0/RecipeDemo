@@ -1,0 +1,48 @@
+﻿@using X.PagedList;
+@using X.PagedList.Mvc.Core
+
+@model IPagedList<RecipeDemo.Models.Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+<h1>Kategori Listesi</h1>
+<br />
+
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Kategori Adı</th>
+        <th>Kategori Açıklama</th>
+        <th>Kategori Görsel</th>
+        <th>Durum</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryDescription</td>
+            <td>@item.CategoryImageURL</td>
+            <td>@item.Status</td>
+            <td><a href="/Category/CategoryDelete/@item.CategoryID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Category/CategoryGet/@item.CategoryID" class="btn btn-warning">Güncelle</a></td>
+        </tr>
+    }
+
+
+</table>
+@Html.PagedListPager((IPagedList)Model, Page => Url.Action("Index", new { Page }), new X.PagedList.Web.Common.PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+<a href="/Category/CategoryAdd/" class="btn btn-primary">Kategori Ekle</a>
+
+

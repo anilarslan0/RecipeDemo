@@ -1,0 +1,60 @@
+﻿@model List<RecipeDemo.Models.Recipe>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<h1>Tarifler</h1>
+
+<table class="table table-bordered" id="tblRecipes">
+    <tr>
+        <th>Id</th>
+        <th>Tarif Adı</th>
+        <th>Kategori</th>
+        <th>Tarif </th>
+        <th>Görsel</th>
+        <th>Delete</th>
+        <th>Update</th>
+  
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.RecipeId</td>
+            <td>@item.Title</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.Description.Substring(0, 10)</td>
+            <td>@item.ImageURL.Substring(0, 10)</td>
+            <td><a  class="btn btn-danger btnRecipeDelete " data-id="@item.RecipeId">Sil</a></td>
+            <td><a href="/Recipe/RecipeGet/@item.RecipeId" class="btn btn-warning">Güncelle</a></td>
+       
+        </tr>
+    }
+
+
+</table>
+<a href="/Recipe/AddRecipe/" class="btn btn-primary">Yeni Tarif Ekle</a>
+
+
+<script>
+    $(function () {
+        $("#tblRecipes").on("click", ".btnRecipeDelete", function () {
+            if (confirm("Tarifi Silmek İstediğinize Emin Misiniz?")) {
+                var id = $(this).data("id");
+                var btn = $(this);
+                $.ajax({
+                    type: "GET",
+                    url: "Recipe/DeleteRecipe/" + id,
+                    success: function () {
+                        btn.parent().parent().remove();
+                    }
+                });
+            }
+           
+    });
+    });
+</script>

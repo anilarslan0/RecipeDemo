@@ -1,0 +1,32 @@
+﻿@model RecipeDemo.Models.Recipe
+
+@{
+    ViewData["Title"] = "AddRecipe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Tarif Ekleme Paneli</h1>
+
+
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("AddRecipe", "Recipe", FormMethod.Post))
+{
+
+    @Html.LabelFor(x => x.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ImageURL)
+    @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category)
+    @Html.DropDownListFor(x=>x.CategoryId,(List<SelectListItem>)ViewBag.value,new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+
+}

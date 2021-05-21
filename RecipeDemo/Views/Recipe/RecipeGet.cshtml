@@ -1,0 +1,36 @@
+﻿@model RecipeDemo.Models.Recipe
+@{
+    ViewData["Title"] = "RecipeGet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Tarif Güncelleme Paneli</h1>
+
+
+<link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+
+
+@using (Html.BeginForm("RecipeUpdate", "Recipe", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.RecipeId)
+    @Html.TextBoxFor(x => x.RecipeId, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Title)
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ImageURL)
+    @Html.TextBoxFor(x => x.ImageURL, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category)
+  // @Html.TextBoxFor(x => x.CategoryId, new { @class = "form-control" })
+     @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.valueUpdate, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Description)
+    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+
+
+}
+
+
